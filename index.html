@@ -60,7 +60,6 @@
           "Helvetica Neue", Arial;
       }
 
-      /* إصلاح ألوان العناصر الصغيرة في Dark Mode */
       [data-theme="dark"] .text-muted {
         color: var(--muted) !important;
       }
@@ -72,7 +71,6 @@
       [data-theme="dark"] .text-muted small {
         color: var(--muted) !important;
       }
-      /* تغيير لون أيقونة الهامبرجر في الوضع الداكن */
       [data-theme="dark"] .navbar-toggler {
         border-color: var(--muted);
       }
@@ -81,7 +79,6 @@
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
       }
 
-      /* الخلفية المتحركة */
       body {
         background: var(--bg-color);
         color: var(--text-color);
@@ -91,7 +88,6 @@
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
-      /* تأثير الجسيمات المتحركة */
       .particles {
         position: fixed;
         top: 0;
@@ -192,7 +188,6 @@
         border-radius: 2px;
         animation: slideIn 0.3s ease;
       }
-      /* تحسينات الهيدر */
       .hero {
         min-height: 100vh;
         display: flex;
@@ -301,7 +296,6 @@
         color: var(--muted);
       }
 
-      /* تحسينات جميع الأقسام */
       .main-section {
         min-height: 80vh;
         display: flex;
@@ -398,7 +392,6 @@
         box-shadow: 0 4px 12px var(--shadow-hover);
       }
 
-      /* زر Dark Mode */
       .theme-toggle {
         background: transparent;
         border: none;
@@ -420,7 +413,6 @@
         transform: rotate(30deg);
       }
 
-      /* Fade animations */
       .fade-in {
         opacity: 0;
         transform: translateY(20px);
@@ -444,7 +436,6 @@
         transition-delay: 0.6s;
       }
 
-      /* Hover animations */
       a.btn,
       .nav-link {
         transition: all 0.3s ease;
@@ -478,7 +469,6 @@
         color: #fff !important;
       }
 
-      /* Skill items */
       .skill-item {
         margin-bottom: 1.5rem;
       }
@@ -494,7 +484,6 @@
         background: linear-gradient(90deg, var(--primary), var(--secondary));
       }
 
-      /* Badge styling */
       .badge {
         padding: 0.5rem 1rem;
         font-weight: 500;
@@ -505,7 +494,6 @@
         border: 1px solid var(--border-color);
       }
 
-      /* تحسينات للمحتوى داخل البطاقات */
       .card-content {
         padding: 1.5rem;
       }
@@ -533,7 +521,6 @@
         color: var(--text-color);
       }
 
-      /* Animations */
       @keyframes gradientShift {
         0% {
           background-position: 0% 50%;
@@ -576,7 +563,6 @@
         }
       }
 
-      /* تحسين التصميم للجوال */
       @media (max-width: 768px) {
         .hero {
           padding: 5rem 0 2rem;
@@ -670,7 +656,6 @@
     </style>
   </head>
   <body>
-    <!-- الجسيمات المتحركة في الخلفية -->
     <div class="particles">
       <div class="particle"></div>
       <div class="particle"></div>
@@ -1091,33 +1076,35 @@
         themeIcon.classList.remove("bi-sun");
         themeIcon.classList.add("bi-moon");
       }
-// Active Nav Link on Scroll
-function setActiveNavLink() {
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('.nav-link');
-  
-  let currentSection = '';
-  
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    const sectionHeight = section.clientHeight;
-    
-    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-      currentSection = section.getAttribute('id');
-    }
-  });
-  
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${currentSection}`) {
-      link.classList.add('active');
-    }
-  });
-}
+      // Active Nav Link on Scroll
+      function setActiveNavLink() {
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
 
-// استدعاء الدالة عند التمرير وعند تحميل الصفحة
-window.addEventListener("scroll", setActiveNavLink);
-window.addEventListener('load', setActiveNavLink);
+        let currentSection = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.clientHeight;
+
+          if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+          ) {
+            currentSection = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${currentSection}`) {
+            link.classList.add("active");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", setActiveNavLink);
+      window.addEventListener("load", setActiveNavLink);
       // Toggle theme function
       function toggleTheme() {
         const currentTheme =
